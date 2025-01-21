@@ -34,11 +34,14 @@ if st.button("Download Video"):
         try:
             # yt-dlp 옵션 설정
             ydl_opts = {
-                # 'format': 'bestvideo+bestaudio/best',  # 최고 품질 비디오와 오디오 다운로드
-                'format': 'bestaudio/best',  # 최고 품질의 단일 파일 다운로드
+                'format': 'bestvideo+bestaudio/best',  # 최고 품질 비디오와 오디오 다운로드
+                # 'format': 'bestaudio/best',  # 최고 품질의 단일 파일 다운로드
                 'outtmpl': './downloads/%(title)s.%(ext)s',  # 저장 경로 및 파일 이름 형식
                 'merge_output_format': None,  # 병합을 비활성화
                 'noplaylist': True,  # 재생 목록 대신 단일 동영상만 다운로드
+                'http_headers': {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                }
             }
             # yt-dlp로 다운로드
             with YoutubeDL(ydl_opts) as ydl:
