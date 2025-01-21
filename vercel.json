@@ -10,5 +10,10 @@
         "src": "/(.*)",
         "dest": "youtube-to-video.py"
       }
-    ]
+    ],
+    "functions": {
+    "api/**/*.js": {
+      "excludeFiles": "node_modules/**"
+    }
+  }
   }
